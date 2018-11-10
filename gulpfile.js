@@ -123,7 +123,7 @@ gulp.task('build', ['removedist', 'imagemin', 'sass', 'js'], function() {
 
 });
 
-gulp.task('deploy', function() {
+gulp.task('deploy', function() { // compact.aquagradus.in.ua
 
 	var conn = ftp.create({
 		host:      '213.186.35.224',
@@ -142,6 +142,26 @@ gulp.task('deploy', function() {
 	// .pipe(conn.dest('/www/www.compact.aquagradus.in.ua/'));
 
 });
+
+// gulp.task('deploy', function() {
+
+// 	var conn = ftp.create({
+// 		host:      '51.15.19.20',
+// 		user:      'aquagradususer',
+// 		password:  'JqD9F2dF9J41SoN',
+// 		parallel:  10,
+// 		log: gutil.log
+// 	});
+
+// 	var globs = [
+// 	'dist/**',
+// 	'dist/.htaccess',
+// 	];
+// 	return gulp.src(globs, {buffer: false})
+// 	.pipe(conn.dest('/www/compact.aquagradus.com/'));
+// 	// .pipe(conn.dest('/www/www.compact.aquagradus.com/'));
+
+// });
 
 gulp.task('rsync', function() {
 	return gulp.src('dist/**')

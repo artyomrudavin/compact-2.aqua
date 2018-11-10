@@ -36,15 +36,15 @@
 		if ( bakVal.hasClass('active') ) {
 			formOld.hide();
 			if ( dataTk == 'tenTk' ) {
-				formValue.text('2 100₴');
+				formValue.text('2 300₴');
 				imgConstr.css({
 					background: 'url(/img/constructor/10l-nocolumn_big.jpg)',
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'contain',
 					backgroundPosition: 'top center'
 				});
-				mtextValue.text('Бак Aquagradus Стандарт на 10л');
-				hiddenComment.val('Бак Aquagradus Стандарт на 10л');
+				mtextValue.text('Бак Aquagradus Стандарт на 14л');
+				hiddenComment.val('Бак Aquagradus Стандарт на 14л');
 			} else if ( dataTk == 'twentyTk' ) {
 				formValue.text('2 700₴');
 				imgConstr.css({
@@ -125,16 +125,16 @@
 			formOld.show();
 
 			if ( dataTk == 'tenTk' ) {
-				formOld.text('4 090₴');
-				formValue.text('3 490₴');
+				formOld.text('4 290₴');
+				formValue.text('3 690₴');
 				imgConstr.css({
 					background: 'url(/img/constructor/10l-pro_big.jpg)',
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'contain',
 					backgroundPosition: 'top center'
 				});
-				mtextValue.text('Самогонный аппарат с баком на 10л');
-				hiddenComment.val('Самогонный аппарат с баком на 10л');
+				mtextValue.text('Самогонный аппарат с баком на 14л');
+				hiddenComment.val('Самогонный аппарат с баком на 14л');
 			} else if ( dataTk == 'twentyTk' ) {
 				formOld.text('4 690₴');
 				formValue.text('4 190₴');
@@ -208,8 +208,8 @@
 			modalBtn.text('Купить колонну');
 		} else {
 			colVal.text('Колонна отдельно');
-			formValue.text('3 490₴');
-			formOld.text('4 090₴');
+			formValue.text('3 690₴');
+			formOld.text('4 290₴');
 			formOld.show();
 			imgConstr.css({
 				background: 'url(/img/constructor/10l-pro_big.jpg)',
@@ -217,8 +217,8 @@
 				backgroundSize: 'contain',
 				backgroundPosition: 'top center'
 			});
-			mtextValue.text('Самогонный аппарат Компакт с баком на 10л');
-			hiddenComment.val('Самогонный аппарат Компакт с баком на 10л');
+			mtextValue.text('Самогонный аппарат Компакт с баком на 14л');
+			hiddenComment.val('Самогонный аппарат Компакт с баком на 14л');
 			$(litreVl).removeClass('active');
 			$(litreVl[0]).addClass('active');
 			$(arrCompl).removeClass('hide');
@@ -245,15 +245,15 @@
 		formOld.hide();
 		$('#litr0').show();
 		$('#litr3').show();
-		formValue.text('2 100₴');
+		formValue.text('2 300₴');
 		imgConstr.css({
 			background: 'url(/img/constructor/10l-nocolumn_big.jpg)',
 			backgroundRepeat: 'no-repeat',
 			backgroundSize: 'contain',
 			backgroundPosition: 'top center'
 		});
-		mtextValue.text('Бак Aquagradus Стандарт на 10л');
-		hiddenComment.val('Бак Aquagradus Стандарт на 10л');
+		mtextValue.text('Бак Aquagradus Стандарт на 14л');
+		hiddenComment.val('Бак Aquagradus Стандарт на 14л');
 		$(litreVl).removeClass('active');
 		$(litreVl[0]).addClass('active');
 
@@ -273,8 +273,8 @@
 		} else {
 			bakVal.text('Бак отдельно');
 			$('#litr3').hide();
-			formValue.text('3 490₴');
-			formOld.text('4 090₴');
+			formValue.text('3 690₴');
+			formOld.text('4 290₴');
 			formOld.show();
 			imgConstr.css({
 				background: 'url(/img/constructor/10l-pro_big.jpg)',
@@ -282,8 +282,8 @@
 				backgroundSize: 'contain',
 				backgroundPosition: 'top center'
 			});
-			mtextValue.text('Самогонный аппарат с баком на 10л');
-			hiddenComment.val('Самогонный аппарат с баком на 10л');
+			mtextValue.text('Самогонный аппарат с баком на 14л');
+			hiddenComment.val('Самогонный аппарат с баком на 14л');
 			$(litreVl).removeClass('active');
 			$(litreVl[0]).addClass('active');
 			$(arrCompl).removeClass('hide');
@@ -370,8 +370,8 @@
 				modalBtn.text('Купить аппарат');
 			} else {
 				colValPC.text('Колонна Компакт Плюс');
-				formValue.text('3 490₴');
-				formOld.text('4 090₴');
+				formValue.text('3 690₴');
+				formOld.text('4 290₴');
 				formOld.show();
 				imgConstr.css({
 					background: 'url(/img/constructor/10l-pro_big.jpg)',
@@ -379,8 +379,8 @@
 					backgroundSize: 'contain',
 					backgroundPosition: 'top center'
 				});
-				mtextValue.text('Самогонный аппарат Компакт с баком на 10л');
-				hiddenComment.val('Самогонный аппарат Компакт с баком на 10л');
+				mtextValue.text('Самогонный аппарат Компакт с баком на 14л');
+				hiddenComment.val('Самогонный аппарат Компакт с баком на 14л');
 				$('#litr0').show();
 				$('#litr3').hide();
 				$(litreVl).removeClass('active');

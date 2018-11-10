@@ -28,15 +28,15 @@
 		urlT: 'img/10/tank-10.jpg',
 		weightA: '6 кг',
 		weightT: '4 кг',
-		inTank: '8 л',
-		cleanSpirt: '0.8 л',
-		inside: '2.0 л',
-		insideButle: '4 бутылок по 0.5',
-		oldPrice: '4 090₴',
-		newPrice: '3 490₴',
-		tankPrice: '2 100₴',
-		appName: 'AquaGradus Компакт 10 л',
-		tankName: 'Испарительная емкость 10 л'
+		inTank: '10 л',
+		cleanSpirt: '1 л',
+		inside: '2.5 л',
+		insideButle: '5 бутылок по 0.5',
+		oldPrice: '4 290₴',
+		newPrice: '3 690₴',
+		tankPrice: '2 300₴',
+		appName: 'AquaGradus Компакт 14 л',
+		tankName: 'Испарительная емкость 14 л'
 	};
 
 	var twentyTank = {
