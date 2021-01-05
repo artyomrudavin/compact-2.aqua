@@ -83,8 +83,8 @@
 			formOld.show();
 
 			if ( dataTk == 'twentyTk' ) {
-				formOld.text('5 490₴');
-				formValue.text('5 040₴');
+				formOld.text('5 990₴');
+				formValue.text('5 590₴');
 				imgConstr.css({
 					background: 'url(/img/constructor/20l+-pro_big.jpg)',
 					backgroundRepeat: 'no-repeat',
@@ -95,8 +95,8 @@
 				hiddenComment.val('Самогонный аппарат Компакт Плюс с баком на 25л');
 
 			} else if ( dataTk == 'thirtyTk' ) {
-				formOld.text('5 990₴');
-				formValue.text('5 640₴');
+				formOld.text('6 490₴');
+				formValue.text('6 190₴');
 				imgConstr.css({
 					background: 'url(/img/constructor/30l+-pro_big.jpg)',
 					backgroundRepeat: 'no-repeat',
@@ -107,8 +107,8 @@
 				hiddenComment.val('Самогонный аппарат Компакт Плюс с баком на 35л');
 
 			} else if ( dataTk == 'fiftyTk' ) {
-				formOld.text('6 590₴');
-				formValue.text('6 240₴');
+				formOld.text('7 090₴');
+				formValue.text('6 790₴');
 				imgConstr.css({
 					background: 'url(/img/constructor/50l+-pro_big.jpg)',
 					backgroundRepeat: 'no-repeat',
@@ -136,8 +136,8 @@
 				mtextValue.text('Самогонный аппарат с баком на 14л');
 				hiddenComment.val('Самогонный аппарат с баком на 14л');
 			} else if ( dataTk == 'twentyTk' ) {
-				formOld.text('4 690₴');
-				formValue.text('4 190₴');
+				formOld.text('5 290₴');
+				formValue.text('4 690₴');
 				imgConstr.css({
 					background: 'url(/img/constructor/20l-pro_big.jpg)',
 					backgroundRepeat: 'no-repeat',
@@ -147,8 +147,8 @@
 				mtextValue.text('Самогонный аппарат с баком на 25л');
 				hiddenComment.val('Самогонный аппарат с баком на 25л');
 			} else if ( dataTk == 'thirtyTk' ) {
-				formOld.text('5 190₴');
-				formValue.text('4 790₴');
+				formOld.text('5 890₴');
+				formValue.text('5 290₴');
 				imgConstr.css({
 					background: 'url(/img/constructor/30l-pro_big.jpg)',
 					backgroundRepeat: 'no-repeat',
@@ -173,7 +173,7 @@
 		formOld.hide();
 
 		if ( colValPC.hasClass('active') ) {
-			formValue.text('2 790₴');
+			formValue.text('3 290₴');
 			imgConstr.css({
 				background: 'url(/img/constructor/pro_big+.jpg)',
 				backgroundRepeat: 'no-repeat',
@@ -183,7 +183,7 @@
 			mtextValue.text('Колонна Aquagradus Компакт Плюс');
 			hiddenComment.val('Колонна Aquagradus Компакт Плюс');
 		} else {
-			formValue.text('1 990₴');
+			formValue.text('2 490₴');
 			imgConstr.css({
 				background: 'url(/img/constructor/pro_big.jpg)',
 				backgroundRepeat: 'no-repeat',
@@ -316,7 +316,7 @@
 
 			if ( colValPC.hasClass('active') ) {
 				colValPC.text('Колонна Компакт');
-				formValue.text('2 790₴');
+				formValue.text('3 290₴');
 				imgConstr.css({
 					background: 'url(/img/constructor/pro_big+.jpg)',
 					backgroundRepeat: 'no-repeat',
@@ -326,7 +326,7 @@
 				mtextValue.text('Колонна Aquagradus Компакт Плюс');
 				hiddenComment.val('Колонна Aquagradus Компакт Плюс');
 			} else {
-				formValue.text('1 990₴');
+				formValue.text('2 490₴');
 				colValPC.text('Колонна Компакт Плюс');
 				imgConstr.css({
 					background: 'url(/img/constructor/pro_big.jpg)',
@@ -348,7 +348,7 @@
 			};
 
 			formOld.text('5 990₴');
-			formValue.text('5 640₴');
+			formValue.text('5 590₴');
 			imgConstr.css({
 				background: 'url(/img/constructor/20l+-pro_big.jpg)',
 				backgroundRepeat: 'no-repeat',

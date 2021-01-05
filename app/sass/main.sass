@@ -132,7 +132,7 @@ textarea
 	height: auto
 
 .num
-	font-family: $else-font
+	font-family: $default-font
 
 .hide
 	display: none
@@ -161,6 +161,42 @@ textarea
 		background-color: darken($accent, 10%)
 		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
 
+.btn-disable
+	background-color: $dark-gray!important
+	&:hover
+		cursor: default!important
+		box-shadow: none!important
+
+.showMenu
+	top: 0!important // fridayblack
+
+/* BlackFriday Banner Start */
+
+.banner
+	display: none
+
+.banner, .bannerm
+	margin: 0px
+	padding: 0px
+	text-align: center
+	a
+		text-decoration: none
+		display: block
+		background: #d9172f
+		height: 60px
+		width: 100%
+		.h-img
+			display: block
+			max-width: 1316px
+			margin: 0 auto
+			width: 100%
+
+.bannerm
+	a
+		height: auto
+
+/* BlackFriday Banner End */
+
 /* Header Start */
 
 .header
@@ -170,7 +206,8 @@ textarea
 	background-size: 50%
 	.header-nav
 		position: fixed
-		top: 0
+		top: -100px // fridayblack
+		transition: .4s // fridayblack
 		width: 100%
 		z-index: 500
 		opacity: .95
@@ -200,13 +237,28 @@ textarea
 						text-align: center
 						font-size: 7px // sm 8px
 				.phone-mobile
-					font-family: $else-font
+					font-family: $default-font
 					font-weight: bold
 					font-size: 14px
 					display: flex
 					flex-direction: column
 					flex: 1 1 auto
 					align-items: flex-end
+					.ct-phone
+						position: relative
+						padding-left: rem(25)
+						&:before
+							content: ""
+							width: rem(20)
+							height: rem(20)
+							top: 50%
+							transform: translateY(-50%)
+							position: absolute
+							left: 0
+							margin: 0
+							background: url(/img/header/phone-contact.png)
+							background-repeat: no-repeat
+							background-size: contain
 				a
 					color: #000
 				.icon
@@ -263,11 +315,26 @@ textarea
 							&:hover
 								color: $accent
 					.head-ph
-						font-family: $else-font
+						font-family: $default-font
 						font-weight: bold
 						font-size: 14px
 						display: none
 						z-index: 100
+						.ct-phone
+							position: relative
+							padding-left: rem(35)
+							&:before
+								content: ""
+								width: rem(30)
+								height: rem(30)
+								top: 50%
+								transform: translateY(-50%)
+								position: absolute
+								left: 0
+								margin: 0
+								background: url(/img/header/phone-contact.png)
+								background-repeat: no-repeat
+								background-size: contain
 					.btnHead
 						display: none
 						z-index: 100
@@ -390,7 +457,7 @@ textarea
 						flex-direction: column
 						.form-item
 							width: 100%
-							font-family: $else-font
+							font-family: $default-font
 							padding-top: 16px
 							color: $black
 							padding-bottom: 16px
@@ -485,7 +552,7 @@ textarea
 
 // .header-call
 // 	text-align: right
-// 	// font-family: $else-font
+// 	// font-family: $default-font
 // 	span
 // 		font-size: 17px
 // 		font-weight: bold
@@ -636,7 +703,7 @@ textarea
 
 /* Video Start */
 
-.video
+.video-block
 	padding-top: rem(30)
 	padding-bottom: rem(60)
 	.container-fluid
@@ -680,18 +747,50 @@ textarea
 							margin-right: rem(10)
 							flex: 0 0 auto
 			.col-md-8
-				.videoWrapper
+				.video
 					position: relative
-					padding-bottom: 56.25%
+					width: 100%
 					height: 0
+					padding-bottom: 56.25%
 					border: 2px solid $accent
 					margin-bottom: rem(20)
-					iframe
+					&:hover
+						.video__button
+							.video__button-shape
+								fill: #ff0000
+								fill-opacity: 1
+					.video__media
 						position: absolute
 						top: 0
 						left: 0
 						width: 100%
 						height: 100%
+						border: 0
+					.video__button
+						position: absolute
+						top: 50%
+						left: 50%
+						padding: 0
+						width: rem(68)
+						height: rem(48)
+						border: none
+						background-color: transparent
+						transform: translate(-50%,-50%)
+						outline: none
+						display: none
+						.video__button-shape
+							fill: #212121
+							fill-opacity: .8
+						.video__button-icon
+							fill: #fff
+						&:focus
+							.video__button-shape
+								fill: #ff0000
+								fill-opacity: 1
+				.video--enabled
+					cursor: pointer
+					.video__button
+						display: block
 			.col-md-12
 				text-align: center
 				padding: rem(30)
@@ -718,6 +817,50 @@ textarea
 
 
 /* Video End */
+
+/* Blackfriday Start */
+
+.blackfriday
+	padding: rem(30) rem(30)
+	// background: url(../img/right.jpg) center left no-repeat, url(../img/left.jpg) center right no-repeat, #000000
+	// background-size: contain
+	background-color: #e80013
+	.container
+		.bf-row
+			flex-direction: column
+			.bf-img-block
+				// width: 50%
+			.bf-text-block
+				// width: 50%
+				color: #fff
+				text-align: center
+				display: flex
+				flex-direction: column
+				justify-content: center
+				align-items: center
+				.aqua, .small-h
+					color: #fff
+					font-size: 38px
+					line-height: 38px
+					font-weight: bold
+				.aqua
+					color: #b1c5d2
+					margin-bottom: rem(20)
+					.logo-font
+						font-size: 42px
+				.img-responsive
+					margin: 0 auto
+				.small-h
+				.bf-adds
+					color: #fff
+					margin-bottom: rem(30)
+				.bf-btn
+					background-color: #b1c5d2
+					color: #000
+					// max-width: rem(200)
+					padding: rem(15) rem(30)
+
+/* Blackfriday End */
 
 /* Standart Start */
 
@@ -993,7 +1136,7 @@ textarea
 				.bk-val, .col-val
 					font-size: 14px
 					span
-						font-family: $else-font
+						font-family: $default-font
 			.l-char-form
 				width: 100%
 				.price
@@ -1995,10 +2138,10 @@ textarea
 				div
 					width: 100% // lg 35% xs 100%
 					margin: 0 auto
-					a
+					span
 						display: block // lg inline-block xs block
 						width: 100% // lg 50% xs 100%
-						font-family: $else-font
+						font-family: $default-font
 						color: #fff
 				p, div, .title
 					margin-bottom: rem(8)

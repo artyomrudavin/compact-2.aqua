@@ -47,6 +47,8 @@ gulp.task('js', ['common-js', 'charChoose-js', 'constrCatalog-js'], function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
 		'app/libs/phone-mask/phoneMask.min.js',
+		'app/libs/ModernizeJs/modernizr-custom.js',
+		'app/libs/videoJs/video.js',
 		'app/js/modules/min/charChoose.min.js',
 		'app/js/modules/min/constrCatalog.min.js',
 		'app/js/common.min.js', // Всегда в конце

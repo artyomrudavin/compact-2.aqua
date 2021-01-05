@@ -23,6 +23,29 @@
 
 // });
 
+$(function() { // fridayblack
+
+	// When the user scrolls the page, execute myFunction
+	window.onscroll = function() {myFunction()};
+
+	// Get the navbar
+	var wehave = document.getElementById("header-text");
+	var navbar = document.getElementById("navbar");
+
+	// Get the offset position of the navbar
+	var showMenu = wehave.offsetTop;
+
+	// Add the sticky class to the navbar
+	function myFunction() {
+		if (window.pageYOffset >= showMenu) {
+			navbar.classList.add("showMenu")
+		} else {
+			navbar.classList.remove("showMenu");
+		}
+	}
+
+});
+
 // Modal Control - Book
 
 $(function() {
@@ -115,6 +138,29 @@ $(function() {
 
 });
 
+// Modal Control - Black friday
+
+$(function() { // fridayblack
+
+	var modal = $('#blackfriday-modal.modal-mask');
+
+	$('.bf-text-block .bf-btn').on('click', function(e) {
+		e.preventDefault();
+		modal.removeClass('hide');
+	});
+
+	$('.modal-close').on('click', function() {
+		modal.addClass('hide');
+	});
+
+	$(document).on('click', function(event) {
+		if ( event.target.id == 'mW3' ) {
+			modal.addClass('hide');
+		}
+	});
+
+});
+
 // Modal Control - About
 
 $(function() {
@@ -174,7 +220,7 @@ $(function() {
 			hiddenComAdd.val('Кольца Рашига 1 кг');
 			// console.log('rashiga');
 		} else if ( $(this).attr('id') == 'areom' ) {
-			addPrice.text('350₴');
+			addPrice.text('450₴');
 			addTextm.text('Набор профессиональных ареометров и мерная колба');
 			hiddenComAdd.val('Набор профессиональных ареометров и мерная колба');
 			// console.log('areom');
@@ -296,9 +342,9 @@ $(function() {
 
 // Scroll to
 
-$(function() {
+$(function() { // fridayblack
 
-	$('.more a, #menu a, .goto a, .card-block a').click( function(){ // ловим клик по ссылке с классом go_to
+	$('.more a, #menu a, .goto a, .card-block a, .banner a, .bannerm a').click( function(){ // ловим клик по ссылке с классом go_to
 	var scroll_el = $(this).attr('href'); // возьмем содержимое атрибута href, должен быть селектором, т.е. например начинаться с # или .
         if ($(scroll_el).length != 0) { // проверим существование элемента чтобы избежать ошибки
 	    $('html, body').animate({ scrollTop: $(scroll_el).offset().top - 75}, 2000); // анимируем скроолинг к элементу scroll_el
@@ -401,10 +447,13 @@ $(function() {
 
 //E-mail & Bitrix Ajax Send
 
-$(function() {
+$(function() { // fridayblack
 
-	$("#headerCall, #headerForm, #modalBook, #formBuy, #aboutCall, #formAdd, #question, #char-form, #formBonus, #formCharMod, #formTank, #formVideo").submit(function() { //Change
+	$("#headerCall, #bf-call, #headerForm, #modalBook, #formBuy, #aboutCall, #formAdd, #question, #char-form, #formBonus, #formCharMod, #formTank, #formVideo").submit(function() { //Change
 		var th = $(this);
+		var submitButton = th.find("button[type='submit']");
+		console.log(submitButton);
+		submitButton.addClass('btn-disable').prop("disabled", true);
 
 		$.ajax({
 			type: "POST",
@@ -414,9 +463,9 @@ $(function() {
 			// alert("Thank you!");
 			setTimeout(function() {
 				// Done Functions
-				th.trigger("reset");
-			}, 1000);
-			location.href = "http://compact.aquagradus.in.ua/sps/";
+				// th.trigger("reset");
+				location.href = "http://aquagradus.in.ua/sps/";
+			}, 500);
 		});
 		return false;
 	});
