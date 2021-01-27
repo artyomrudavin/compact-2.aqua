@@ -1,0 +1,531 @@
+@import "fonts"
+@import "vars"
+
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	&:before, &:after
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+html, body
+	height: 100%
+
+html
+	font-size: 16px
+
+body
+	margin: 0
+	padding: 0
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.5
+	font-family: $default-font
+	overflow-x: hidden
+	opacity: 1
+
+ul, p, h1, h2, h3, h4, h5
+	padding: 0
+	margin: 0
+
+ul
+	list-style: none
+
+h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5
+	line-height: 1.1
+	font-weight: bold
+
+a
+	color: $black
+	text-decoration: none
+	&:hover, &:focus
+		text-decoration: none
+
+.link
+	transition: .5s
+	border-bottom: 1px solid $accent
+	font-weight: bold
+	color: $accent
+	&:hover
+		text-decoration: none
+		color: darken($accent, 30%)
+		border-bottom: 1px solid darken($accent, 30%)
+
+.logo-font
+	font-family: $logo-font
+	font-size: rem(18)
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+// Forms:
+form,
+fieldset
+	margin: 0
+	padding: 0
+	border-style: none
+
+input[type='text'],
+input[type='tel'],
+input[type='email'],
+input[type='search'],
+input[type='password'],
+input[type='url'],
+input[type='date'],
+textarea
+	-webkit-appearance: none
+	-webkit-border-radius: 3px
+	box-sizing: border-box
+	border: 0
+	font-size: 16px
+	padding: rem(10)
+	color: $black
+	background: #fff
+	box-shadow: inset 0 0 2px $dark-gray
+	&:focus
+		outline: none
+
+.row
+	display: flex
+	flex-wrap: wrap
+	margin-left: rem(-15)
+	margin-right: rem(-15)
+
+.col-5
+	flex: 0 0 41.66667%
+	max-width: 41.66667%
+
+.col-6
+	flex: 0 0 50%
+	max-width: 50%
+
+.col-7
+	flex: 0 0 58.33333%
+	max-width: 58.33333%
+
+.col-5, .col-6, .col-7, .col-12
+	padding-left: rem(15)
+	padding-right: rem(15)
+	position: relative
+
+.col-md-5, .col-md-7
+	position: relative
+	width: 100%
+	min-height: rem(1)
+	padding-right: rem(15)
+	padding-left: rem(15)
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.num
+	font-family: $default-font
+
+.hide
+	display: none
+
+.clearfix:after
+	display: block
+	content: ""
+	clear: both
+
+.hr-line
+	height: 1px
+	width: 100%
+	margin: 15px
+	background-color: #efe5cc
+
+.btn
+	display: inline-block
+	border: none
+	background-color: $accent
+	color: #fff
+	text-align: center
+	white-space: nowrap
+	user-select: none
+	transition: all .2s ease-in-out
+	&:hover
+		background-color: darken($accent, 10%)
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
+
+.btn-disable
+	background-color: $dark-gray!important
+	&:hover
+		cursor: default!important
+		box-shadow: none!important
+
+.header
+	position: relative
+	width: 100%
+	background-size: 50%
+	.header-nav
+		position: fixed
+		top: 0 // fridayblack
+		transition: .4s // fridayblack
+		width: 100%
+		z-index: 500
+		opacity: .95
+		box-shadow: 0 0 10px #ccc
+		background-color: #FFF
+		// display: none
+		.header-nav-box
+			display: flex
+			flex-direction: column
+			justify-content: space-between
+			align-items: center
+			max-width: 1240px
+			margin: auto
+			padding: rem(3) rem(5)
+			.header-brand
+				font-size: 12px
+				display: flex
+				justify-content: space-between
+				align-items: center
+				width: 100%
+				.header-logo
+					img
+						height: rem(30) // sm rem(40) 
+					p
+						margin-top: rem(-4)
+						text-align: center
+						font-size: 7px // sm 8px
+				.phone-mobile
+					font-family: $default-font
+					font-weight: bold
+					font-size: 14px
+					display: flex
+					flex-direction: column
+					flex: 1 1 auto
+					align-items: flex-end
+					.ct-phone
+						// position: relative
+						// padding-left: rem(25)
+						&:before
+							// content: ""
+							width: rem(20)
+							height: rem(20)
+							top: 50%
+							transform: translateY(-50%)
+							position: absolute
+							left: 0
+							margin: 0
+							background: url(/img/header/phone-contact.png)
+							background-repeat: no-repeat
+							background-size: contain
+				a
+					color: #000
+				.icon
+					position: relative
+					width: rem(40)
+					height: rem(50)
+					cursor: pointer
+					.hamburger
+						width: rem(30)
+						height: rem(2)
+						background-color: #000
+						position: absolute
+						top: 50%
+						left: 50%
+						transform: translate(-50%, -50%)
+						box-shadow: 0 1px 2px rgba(0,0,0,.2)
+						transition: .1s
+					.hamburger:before, .hamburger:after
+						content: ""
+						width: rem(30)
+						height: rem(2)
+						background-color: #000
+						position: absolute
+						box-shadow: 0 1px 2px rgba(0,0,0,.2)
+						transition: .3s
+					.hamburger:before
+						top: rem(-8)
+					.hamburger:after
+						top: rem(8)
+					&.active
+						.hamburger
+							background-color: rgba(0,0,0,0)
+							box-shadow: 0 1px 2px rgba(0,0,0,0)
+					&.active
+						.hamburger:before
+							top: 0
+							transform: rotate(45deg)
+					&.active
+						.hamburger:after
+							top: 0
+							transform: rotate(135deg)
+			.header-navbar
+				display: flex
+				flex: 1 0 auto
+				justify-content: flex-end
+				#menu
+					display: none
+					flex-direction: column
+					align-items: center
+					text-align: center
+					li
+						.h-link
+							display: block
+							padding: rem(5) rem(5)
+							font-size: 14px
+							&:hover
+								color: $accent
+					.head-ph
+						font-family: $default-font
+						font-weight: bold
+						font-size: 14px
+						display: none
+						z-index: 100
+						.ct-phone
+							// position: relative
+							// padding-left: rem(35)
+							&:before
+								// content: ""
+								width: rem(30)
+								height: rem(30)
+								top: 50%
+								transform: translateY(-50%)
+								position: absolute
+								left: 0
+								margin: 0
+								background: url(/img/header/phone-contact.png)
+								background-repeat: no-repeat
+								background-size: contain
+					.btnHead
+						display: none
+						z-index: 100
+						.btn
+							padding: rem(8) rem(10)
+							font-size: 14px
+							background-color: $orange
+							margin-left: rem(10)
+			.time-wrap
+				display: flex
+				position: absolute
+				width: 100%
+				left: 0
+				// height: 100%
+				justify-content: center
+				align-items: center
+				transition: 0.4s linear
+				background-color: #fff
+				// transform: translate(0, rem(-70))
+				&.animateHide
+					transform: translate(0, rem(-70))
+					opacity: 0
+				&.animateHideMob
+					transform: translate(0, rem(35))
+					height: rem(50)
+					position: fixed
+					opacity: 0
+					bottom: 0
+					&.active
+						opacity: 1
+						transform: translate(0, 0)
+				p
+					color: $accent
+				.timer
+					display: flex
+					font-size: 18px
+					font-family: $logo-font
+					font-weight: bold
+					text-align: center
+					#days1, #hours1, #minutes1, #seconds1
+						min-width: rem(32)
+						.delimiter
+							width: rem(15)
+		.local
+			height: 100%
+			flex: 0 1 auto
+			margin-left: 10px
+			.lang__control
+				display: flex
+				flex-direction: column
+				height: 100%
+				li
+					a
+						display: block
+						font-size: rem(14)
+						padding: rem(3) rem(6)
+						background-color: #ccc
+						color: #fff
+						transition: .4s
+						&:hover
+							background-color: $accent
+					.lang-active
+						background-color: $accent
+		.local-desc
+			display: none
+	.header-wellcome
+		padding-top: rem(40) // sm rem(67) xs rem(40)
+		.container-fluid
+			width: 100%
+			padding-right: rem(15)
+			padding-left: rem(15)
+			margin-right: auto
+			margin-left: auto
+			.row
+				max-width: 1030px
+				margin: 0 auto
+				height: 100%
+				.header-text
+					z-index: 10
+					position: relative
+					.img-1
+						vertical-align: middle
+						width: 95%
+					.garanty-ph
+						position: absolute
+						bottom: rem(450)
+						left: rem(20)
+						max-width: rem(80)
+					.h2
+						font-size: 18px // md 36px xs 22px
+						margin-top: rem(25)
+						margin-bottom: rem(-10)
+					.h3
+						font-size: 48px // md 72px xs 48px
+						font-family: $logo-font
+						font-weight: bold
+					.h1
+						font-size: 16px // xs 16px
+					.standart
+							position: absolute
+							padding: none // xs none
+							border: none // xs none
+							top: 0 // md rem(45) rem(32)
+							left: rem(258) // md rem(420) rem(258)
+							font-size: 12px // md 20px xs 12px
+							border-radius: 4px
+					.price
+						font-size: 18px
+						span
+							text-decoration: line-through
+							// color: $dark-gray
+							color: $tomato
+						strong
+							font-size: 26px
+							color: $accent
+					.check
+						margin-bottom: rem(5)
+						.check-item
+							display: inline-flex
+							width: 100%
+							vertical-align: middle
+							padding: rem(6) 0
+							// padding: 6px 0
+							.fa
+								font-size: 27px
+								color: $accent
+								margin-right: rem(15)
+								// margin-right: 15px
+							span
+								margin-top: auto
+								margin-bottom: auto
+								font-size: 14px // sm 16px
+					.formAction
+						strong
+							font-size: 14px // sm 16px
+						.num
+							font-size: 22px // sm 22px xs 18px
+							color: $accent
+							white-space: nowrap
+					.form
+						padding: rem(10) rem(10)
+						padding-right: 0
+						border-left: 3px solid $accent
+						width: 100%
+						display: flex
+						justify-content: space-between
+						flex-direction: column
+						.form-item
+							width: 100%
+							font-family: $default-font
+							padding-top: 16px
+							color: $black
+							padding-bottom: 16px
+							margin-bottom: rem(5)
+							// flex: 1 0 auto
+							&:not(last-child)
+								// margin-right: rem(10)
+								// margin-right: 10px
+						.header-btn
+							padding: rem(14) rem(8)
+							font-size: 18px
+							background-color: $orange
+							cursor: pointer
+							color: #fff
+							&:hover
+								background-color: darken($orange, 10%)
+					.order
+						margin-top: rem(85)
+						position: relative
+						// margin-top: 85px
+						.order-bg
+							position: absolute
+							left: rem(-512)
+							bottom: 0
+							z-index: 0
+							// width: 100%
+							display: none
+							// left: -512px
+						.order-ico
+							position: absolute
+							bottom: rem(32)
+							width: 24px
+							// bottom: 32px
+						strong
+							position: absolute
+							left: rem(40) // sm rem(55) xs rem(40)
+							bottom: rem(10) // sm rem(27) xs rem(10)
+							font-style: italic
+							font-size: 14px
+							// bottom: 27px
+							// left: 55px
+							.order-date
+								font-size: 18px
+								color: $accent
+				.header-col-hd
+					display: none
+					.img-2
+						vertical-align: middle
+						width: 95%
+	#header-modal
+		#mW3
+			.modal-container
+				.order-price-value
+					font-size: 26px
+
+
+/* Header End */
+
+@import "mediaF"

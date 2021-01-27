@@ -1,50 +1,678 @@
-// Price changer
+// Characteristics Control
 
-// $(function() {
+(function() {
 
-// 	function nextMsg(i) {
-// 		if (messages.length == i) {
-// 			i = 0;
+	var litreVal = $('.litre-val'),
+	bkVal = $('.bk-val'),
+	colValP = $('.col-valP'),
+	charImg = $('.char-img img'),
+	weight = $('#weight'),
+	speed = $('#speed'),
+	diam = $('#diam'),
+	inTank = $('#inTank'),
+	cleanSpirt = $('#cleanSpirt'),
+	inside = $('#inside'),
+	insideButle = $('#insideButle'),
+	formCharValue = $('#modal-formChar-value'),
+	formOldChar = $('#form-old-char'),
+	charFormCum = $('#char-form-cum'),
+	hidCharComAdd = $('#formCharMod [name="DATA[COMMENTS]"]'),
+	tenTankL = $('#tens'),
+	twentyTankL = $('#twenty'),
+	thirdTankL = $('#third'),
+	fiftyTankL = $('#fifty'),
+	formValueChar = $('#form-value-char');
+
+	var tenTank = {
+		urlA: 'img/10/10.jpg',
+		urlT: 'img/10/tank-10.jpg',
+		weightA: '6 кг',
+		weightT: '4 кг',
+		inTank: '10 л',
+		cleanSpirt: '1 л',
+		inside: '2.5 л',
+		insideButle: '5 бутылок по 0.5',
+		oldPrice: '5 590₴',
+		newPrice: '4 990₴',
+		tankPrice: '2 700₴',
+		appName: 'AquaGradus Компакт 14 л',
+		tankName: 'Испарительная емкость 14 л'
+	};
+
+	var twentyTank = {
+		urlA: 'img/20/20.jpg',
+		urlP: 'img/20/20P.jpg',
+		urlT: 'img/20/tank-20.jpg',
+		weightA: '7 кг',
+		weightP: '8 кг',
+		weightT: '5 кг',
+		inTank: '20 л',
+		cleanSpirt: '2 л',
+		inside: '5.0 л',
+		insideButle: '10 бутылок по 0.5',
+		oldPrice: '6 090₴',
+		newPrice: '5 490₴',
+		oldPricePlus: '6 890₴',
+		newPricePlus: '6 590₴',
+		tankPrice: '3 200₴',
+		appName: 'AquaGradus Компакт 25 л',
+		appNameP: 'AquaGradus Компакт Плюс 25 л',
+		tankName: 'Испарительная емкость 25 л'
+	};
+
+	var thirtyTank = {
+		urlA: 'img/30/30.jpg',
+		urlP: 'img/30/30P.jpg',
+		urlT: 'img/30/tank-30.jpg',
+		weightA: '9 кг',
+		weightP: '10 кг',
+		weightT: '7 кг',
+		inTank: '30 л',
+		cleanSpirt: '3 л',
+		inside: '7.5 л',
+		insideButle: '15 бутылок по 0.5',
+		oldPrice: '6 690₴',
+		newPrice: '6 090₴',
+		oldPricePlus: '7 490₴',
+		newPricePlus: '7 190₴',
+		tankPrice: '3 800₴',
+		appName: 'AquaGradus Компакт 35 л',
+		appNameP: 'AquaGradus Компакт Плюс 35 л',
+		tankName: 'Испарительная емкость 35 л'
+	};
+
+	var fiftyTank = {
+		urlA: 'img/30/30.jpg',
+		urlP: 'img/50/50P.jpg',
+		urlT: 'img/50/tank-50.jpg',
+		weightA: '11 кг',
+		weightP: '12 кг',
+		weightT: '9 кг',
+		inTank: '38 л',
+		cleanSpirt: '3.8 л',
+		inside: '9.5 л',
+		insideButle: '19 бутылок по 0.5',
+		oldPrice: '7 290₴',
+		newPrice: '6 690₴',
+		oldPricePlus: '8 090₴',
+		newPricePlus: '7 790₴',
+		tankPrice: '4 400₴',
+		appName: 'AquaGradus Компакт 50 л',
+		appNameP: 'AquaGradus Компакт Плюс 50 л',
+		tankName: 'Испарительная емкость 50 л'
+	};
+
+	fiftyTankL.hide();
+
+	// Litre 'Click' handler
+
+	$(litreVal).on('click', function (event) {
+
+		event.preventDefault();
+
+		$(this).addClass('active').siblings().removeClass('active');
+
+		var dataTank = $('a.litre-val.active').attr('data-tank');
+
+		if ( bkVal.hasClass('active') ) {
+			charImg.attr('src', eval (dataTank + '.urlT') );
+			weight.text( eval (dataTank + '.weightT') );
+			formOldChar.hide();
+			formValueChar.text( eval (dataTank + '.tankPrice') );
+			charFormCum.text( eval (dataTank + '.tankPrice') );
+			formCharValue.text( eval (dataTank + '.tankName') );
+			hidCharComAdd.val( eval (dataTank + '.tankName') );
+		} else if ( colValP.hasClass('active') ) {
+			charImg.attr('src', eval (dataTank + '.urlP') );
+			weight.text( eval (dataTank + '.weightP') );
+			formOldChar.text( eval (dataTank + '.oldPricePlus') );
+			formValueChar.text( eval (dataTank + '.newPricePlus') );
+			charFormCum.text( eval (dataTank + '.newPricePlus') );
+			formCharValue.text( eval (dataTank + '.appNameP') );
+			hidCharComAdd.val( eval (dataTank + '.appNameP') );
+		} else {
+			charImg.attr('src', eval (dataTank + '.urlA') );
+			weight.text( eval (dataTank + '.weightA') );
+			formOldChar.show();
+			formOldChar.text( eval (dataTank + '.oldPrice') );
+			formValueChar.text( eval (dataTank + '.newPrice') );
+			charFormCum.text( eval (dataTank + '.newPrice') );
+			formCharValue.text( eval (dataTank + '.appName') );
+			hidCharComAdd.val( eval (dataTank + '.appName') );
+		};
+		
+		inTank.text( eval (dataTank + '.inTank') );
+		cleanSpirt.text( eval (dataTank + '.cleanSpirt') );
+		inside.text( eval (dataTank + '.inside') );
+		insideButle.text( eval (dataTank + '.insideButle') );
+
+	});
+
+
+
+	// Tank 'Click' handler
+
+	$(bkVal).on('click', function (event) {
+
+		event.preventDefault();
+
+		tenTankL.show();
+		fiftyTankL.show();
+
+		var dataTank = $('a.litre-val.active').attr('data-tank');
+
+		charImg.attr('src', eval (dataTank + '.urlT') );
+		weight.text( eval (dataTank + '.weightT') );
+		// $('.carSuh').addClass('hide');
+		$(this).toggleClass('active');
+		if ( bkVal.hasClass('active') ) {
+			$(this).text('Аппарат в сборе');
+			formOldChar.hide();
+			formValueChar.text( eval (dataTank + '.tankPrice') );
+			charFormCum.text( eval (dataTank + '.tankPrice') );
+			formCharValue.text( eval (dataTank + '.tankName') );
+			hidCharComAdd.val( eval (dataTank + '.tankName') );
+		} else if ( colValP.hasClass('active') ) {
+			$(this).text('Бак отдельно');
+			tenTankL.hide();
+			fiftyTankL.show();
+			charImg.attr('src', eval (dataTank + '.urlP') );
+		} else {
+			$(this).text('Бак отдельно');
+			tenTankL.siblings().removeClass('active');
+			tenTankL.show().addClass('active');
+			dataTank = 'tenTank';
+			fiftyTankL.hide();
+			formOldChar.show();
+			formOldChar.text( eval (dataTank + '.oldPrice') );
+			formValueChar.text( eval (dataTank + '.newPrice') );
+			charFormCum.text( eval (dataTank + '.newPrice') );
+			charImg.attr('src', eval (dataTank + '.urlA') );
+			weight.text( eval (dataTank + '.weightA') );
+			formCharValue.text( eval (dataTank + '.appName') );
+			hidCharComAdd.val( eval (dataTank + '.appName') );
+		};
+
+	});
+
+
+
+	// Colonna Change 'Click' handler
+
+	$(colValP).on('click', function (event) {
+
+		event.preventDefault();
+
+		tenTankL.hide();
+		fiftyTankL.show();
+
+		if ( tenTankL.hasClass( 'active' ) ) {
+			tenTankL.removeClass( 'active' );
+			twentyTankL.addClass('active');
+		};
+
+		var dataTank = $('a.litre-val.active').attr('data-tank');
+
+		charImg.attr('src', eval (dataTank + '.urlP') );
+		weight.text( eval (dataTank + '.weightT') );
+		speed.text( '5 л/час' );
+		diam.text( '40 мм (Фланец 91мм")' );
+		$(this).toggleClass('active');
+		if ( colValP.hasClass('active') ) {
+			$(this).text('Компакт');
+			bkVal.text('Бак отдельно');
+			formOldChar.text( eval (dataTank + '.oldPricePlus') );
+			formValueChar.text( eval (dataTank + '.newPricePlus') );
+			charFormCum.text( eval (dataTank + '.newPricePlus') );
+			formCharValue.text( eval (dataTank + '.appNameP') );
+			hidCharComAdd.val( eval (dataTank + '.appNameP') );
+		} else {
+			$(this).text('Компакт Плюс');
+			bkVal.text('Бак отдельно');
+			tenTankL.show();
+			fiftyTankL.hide();
+			formOldChar.show();
+			formOldChar.text( eval (dataTank + '.oldPrice') );
+			formValueChar.text( eval (dataTank + '.newPrice') );
+			charFormCum.text( eval (dataTank + '.newPrice') );
+			charImg.attr('src', eval (dataTank + '.urlA') );
+			weight.text( eval (dataTank + '.weightA') );
+			speed.text( '3 л/час' );
+			diam.text( '32 мм (Фланец 91мм")' );
+			formCharValue.text( eval (dataTank + '.appName') );
+			hidCharComAdd.val( eval (dataTank + '.appName') );
+		};
+
+	});
+
+})();
+
+// // Constructor Catalog
+
+(function() {
+
+	var litreVl = $('.litre-vl'),
+	formValue = $('#form-value, #modal-value'),
+	formOld = $('#form-old'),
+	imgConstr = $('.constructor-img'),
+	mtextValue = $('#modal-text-value'),
+	colVal = $('#col-val'),
+	colValPC = $('#col-valPC'),
+	bakVal = $('#bak-val'),
+	buyBtn = $('.btn.constr-btn.buy-btn'),
+	modalBtn = $('.btn.modal-btn'),
+	hiddenComment = $('#formBuy [name="DATA[COMMENTS]"]'),
+	arrCompl = $('.compl-item'),
+	formValueChar = $('#form-value-char');
+
+	$('#litre a').each(function(i) {
+		$(this).attr( 'id', 'litr' + i );
+	});
+
+	$('#litr3').hide();
+
+	// Litre Btn "Click" Handler
+
+	$(litreVl).on('click', function (e) {
+
+		e.preventDefault();
+
+		$(litreVl).removeClass('active');
+		$(this).addClass('active');
+
+		var dataTk = $('a.litre-vl.active').attr('data-tank');
+
+		if ( bakVal.hasClass('active') ) {
+			formOld.hide();
+			if ( dataTk == 'tenTk' ) {
+				formValue.text('2 700₴');
+				imgConstr.css({
+					background: 'url(/img/constructor/10l-nocolumn_big.jpg)',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'contain',
+					backgroundPosition: 'top center'
+				});
+				mtextValue.text('Бак Aquagradus Стандарт на 14л');
+				hiddenComment.val('Бак Aquagradus Стандарт на 14л');
+			} else if ( dataTk == 'twentyTk' ) {
+				formValue.text('3 200₴');
+				imgConstr.css({
+					background: 'url(/img/constructor/20l-nocolumn_big.jpg)',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'contain',
+					backgroundPosition: 'top center'
+				});
+				mtextValue.text('Бак Aquagradus Стандарт на 25л');
+				hiddenComment.val('Бак Aquagradus Стандарт на 25л');
+			} else if ( dataTk == 'thirtyTk' ) {
+				formValue.text('3 800₴');
+				imgConstr.css({
+					background: 'url(/img/constructor/30l-nocolumn_big.jpg)',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'contain',
+					backgroundPosition: 'top center'
+				});
+				mtextValue.text('Бак Aquagradus Стандарт на 35л');
+				hiddenComment.val('Бак Aquagradus Стандарт на 35л');
+			} else if ( dataTk == 'fiftyTk' ) {
+				formValue.text('4 400₴');
+				imgConstr.css({
+					background: 'url(/img/constructor/50l-nocolumn_big.jpg)',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'contain',
+					backgroundPosition: 'top center'
+				});
+				mtextValue.text('Бак Aquagradus Стандарт на 50л');
+				hiddenComment.val('Бак Aquagradus Стандарт на 50л');
+			};
+		} else if ( colValPC.hasClass('active') ) {
+			
+			buyBtn.text('Купить аппарат');
+			modalBtn.text('Купить аппарат');
+			formOld.show();
+
+			if ( dataTk == 'twentyTk' ) {
+				formOld.text('6 890₴');
+				formValue.text('6 590₴');
+				imgConstr.css({
+					background: 'url(/img/constructor/20l+-pro_big.jpg)',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'contain',
+					backgroundPosition: 'top center'
+				});
+				mtextValue.text('Самогонный аппарат Компакт Плюс с баком на 25л');
+				hiddenComment.val('Самогонный аппарат Компакт Плюс с баком на 25л');
+
+			} else if ( dataTk == 'thirtyTk' ) {
+				formOld.text('7 490₴');
+				formValue.text('7 190₴');
+				imgConstr.css({
+					background: 'url(/img/constructor/30l+-pro_big.jpg)',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'contain',
+					backgroundPosition: 'top center'
+				});
+				mtextValue.text('Самогонный аппарат Компакт Плюс с баком на 35л');
+				hiddenComment.val('Самогонный аппарат Компакт Плюс с баком на 35л');
+
+			} else if ( dataTk == 'fiftyTk' ) {
+				formOld.text('8 090₴');
+				formValue.text('7 790₴');
+				imgConstr.css({
+					background: 'url(/img/constructor/50l+-pro_big.jpg)',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'contain',
+					backgroundPosition: 'top center'
+				});
+				mtextValue.text('Самогонный аппарат Компакт Плюс с баком на 50л');
+				hiddenComment.val('Самогонный аппарат Компакт Плюс с баком на 50л');
+			};
+
+		} else {
+			buyBtn.text('Купить аппарат');
+			modalBtn.text('Купить аппарат');
+			formOld.show();
+
+			if ( dataTk == 'tenTk' ) {
+				formOld.text('5 590₴');
+				formValue.text('4 990₴');
+				imgConstr.css({
+					background: 'url(/img/constructor/10l-pro_big.jpg)',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'contain',
+					backgroundPosition: 'top center'
+				});
+				mtextValue.text('Самогонный аппарат с баком на 14л');
+				hiddenComment.val('Самогонный аппарат с баком на 14л');
+			} else if ( dataTk == 'twentyTk' ) {
+				formOld.text('6 090₴');
+				formValue.text('5 490₴');
+				imgConstr.css({
+					background: 'url(/img/constructor/20l-pro_big.jpg)',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'contain',
+					backgroundPosition: 'top center'
+				});
+				mtextValue.text('Самогонный аппарат с баком на 25л');
+				hiddenComment.val('Самогонный аппарат с баком на 25л');
+			} else if ( dataTk == 'thirtyTk' ) {
+				formOld.text('6 690₴');
+				formValue.text('6 090₴');
+				imgConstr.css({
+					background: 'url(/img/constructor/30l-pro_big.jpg)',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'contain',
+					backgroundPosition: 'top center'
+				});
+				mtextValue.text('Самогонный аппарат с баком на 35л');
+				hiddenComment.val('Самогонный аппарат с баком на 35л');
+			};
+		}
+	});
+
+	// Colonna Btn "Click" Handler
+
+	$(colVal).on('click', function(e) {
+
+		e.preventDefault();
+
+		$(this).toggleClass('active');
+		$('#litre').toggleClass('hide');
+		bakVal.removeClass('active');
+		formOld.hide();
+
+		if ( colValPC.hasClass('active') ) {
+			formValue.text('3 700₴');
+			imgConstr.css({
+				background: 'url(/img/constructor/pro_big+.jpg)',
+				backgroundRepeat: 'no-repeat',
+				backgroundSize: 'contain',
+				backgroundPosition: 'top center'
+			});
+			mtextValue.text('Колонна Aquagradus Компакт Плюс');
+			hiddenComment.val('Колонна Aquagradus Компакт Плюс');
+		} else {
+			formValue.text('2 900₴');
+			imgConstr.css({
+				background: 'url(/img/constructor/pro_big.jpg)',
+				backgroundRepeat: 'no-repeat',
+				backgroundSize: 'contain',
+				backgroundPosition: 'top center'
+			});
+			mtextValue.text('Колонна Aquagradus Компакт');
+			hiddenComment.val('Колонна Aquagradus Компакт');
+		};
+
+
+		if ( colVal.hasClass('active') ) {
+			colVal.text('Аппарат в сборе');
+			bakVal.text('Бак отдельно');
+			$(arrCompl).removeClass('hide');
+			$.each(arrCompl, function(i, val) {
+				if ( i > 4) {
+					$(val).addClass('hide');
+				};
+			});
+			buyBtn.text('Купить колонну');
+			modalBtn.text('Купить колонну');
+		} else {
+			colVal.text('Колонна отдельно');
+			formValue.text('4 990₴');
+			formOld.text('5 590₴');
+			formOld.show();
+			imgConstr.css({
+				background: 'url(/img/constructor/10l-pro_big.jpg)',
+				backgroundRepeat: 'no-repeat',
+				backgroundSize: 'contain',
+				backgroundPosition: 'top center'
+			});
+			mtextValue.text('Самогонный аппарат Компакт с баком на 14л');
+			hiddenComment.val('Самогонный аппарат Компакт с баком на 14л');
+			$(litreVl).removeClass('active');
+			$(litreVl[0]).addClass('active');
+			$(arrCompl).removeClass('hide');
+			$.each(arrCompl, function(i, val) {
+				if ( i > 4 && i < 9) {
+					$(val).addClass('hide');
+				};
+			});
+			buyBtn.text('Купить аппарат');
+			modalBtn.text('Купить аппарат');
+		};
+
+	});
+
+	// Tank Btn "Click" Handler
+
+	$(bakVal).on('click', function(e) {
+
+		e.preventDefault();
+
+		$(this).toggleClass('active');
+		$('#litre').removeClass('hide');
+		colVal.removeClass('active');
+		formOld.hide();
+		$('#litr0').show();
+		$('#litr3').show();
+		formValue.text('2 700₴');
+		imgConstr.css({
+			background: 'url(/img/constructor/10l-nocolumn_big.jpg)',
+			backgroundRepeat: 'no-repeat',
+			backgroundSize: 'contain',
+			backgroundPosition: 'top center'
+		});
+		mtextValue.text('Бак Aquagradus Стандарт на 14л');
+		hiddenComment.val('Бак Aquagradus Стандарт на 14л');
+		$(litreVl).removeClass('active');
+		$(litreVl[0]).addClass('active');
+
+		if ( bakVal.hasClass('active') ) {
+			bakVal.text('Аппарат в сборе');
+			colVal.text('Колонна отдельно');
+
+			$(arrCompl).removeClass('hide');
+			$.each(arrCompl, function(i, val) {
+				$(val).addClass('hide');
+				if ( i > 3 ) {
+					return false;
+				}
+			});
+			buyBtn.text('Купить бак отдельно');
+			modalBtn.text('Купить бак отдельно');
+		} else {
+			bakVal.text('Бак отдельно');
+			$('#litr3').hide();
+			formValue.text('4 990₴');
+			formOld.text('5 590₴');
+			formOld.show();
+			imgConstr.css({
+				background: 'url(/img/constructor/10l-pro_big.jpg)',
+				backgroundRepeat: 'no-repeat',
+				backgroundSize: 'contain',
+				backgroundPosition: 'top center'
+			});
+			mtextValue.text('Самогонный аппарат с баком на 14л');
+			hiddenComment.val('Самогонный аппарат с баком на 14л');
+			$(litreVl).removeClass('active');
+			$(litreVl[0]).addClass('active');
+			$(arrCompl).removeClass('hide');
+			$.each(arrCompl, function(i, val) {
+				if ( i > 4 && i < 9) {
+					$(val).addClass('hide');
+				};
+			});
+			buyBtn.text('Купить аппарат');
+			modalBtn.text('Купить аппарат');
+		};
+
+		
+	});
+
+	// Colonna Changer Btn "Click" Handler
+
+	$(colValPC).on('click', function(e) {
+
+		e.preventDefault();
+
+		$(this).toggleClass('active');
+		bakVal.removeClass('active');
+
+		if ( colVal.hasClass('active') ) {
+
+			$('#litre').addClass('hide');
+			bakVal.removeClass('active');
+			formOld.hide();
+
+			if ( colValPC.hasClass('active') ) {
+				colValPC.text('Колонна Компакт');
+				formValue.text('3 700₴');
+				imgConstr.css({
+					background: 'url(/img/constructor/pro_big+.jpg)',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'contain',
+					backgroundPosition: 'top center'
+				});
+				mtextValue.text('Колонна Aquagradus Компакт Плюс');
+				hiddenComment.val('Колонна Aquagradus Компакт Плюс');
+			} else {
+				formValue.text('2 900₴');
+				colValPC.text('Колонна Компакт Плюс');
+				imgConstr.css({
+					background: 'url(/img/constructor/pro_big.jpg)',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'contain',
+					backgroundPosition: 'top center'
+				});
+				mtextValue.text('Колонна Aquagradus Компакт');
+				hiddenComment.val('Колонна Aquagradus Компакт');
+			};
+
+		} else {
+			$('#litr0').hide();
+			$('#litr3').show();
+
+			if ( $('#litr0').hasClass( 'active' ) ) {
+				$('#litr0').removeClass( 'active' );
+				$('#litr1').addClass('active');
+			};
+
+			formOld.text('6 890₴');
+			formValue.text('6 590₴');
+			imgConstr.css({
+				background: 'url(/img/constructor/20l+-pro_big.jpg)',
+				backgroundRepeat: 'no-repeat',
+				backgroundSize: 'contain',
+				backgroundPosition: 'top center'
+			});
+			mtextValue.text('Самогонный аппарат Компакт Плюс с баком 25л');
+			hiddenComment.val('Самогонный аппарат Компакт Плюс с баком 25л');
+			if ( colValPC.hasClass('active') ) {
+				colValPC.text('Колонна Компакт');
+				bakVal.text('Бак отдельно');
+				$(arrCompl).removeClass('hide');
+				$.each(arrCompl, function(i, val) {
+					if ( i > 4) {
+						$(val).addClass('hide');
+					};
+				});
+				buyBtn.text('Купить аппарат');
+				modalBtn.text('Купить аппарат');
+			} else {
+				colValPC.text('Колонна Компакт Плюс');
+				formValue.text('4 990₴');
+				formOld.text('5 590₴');
+				formOld.show();
+				imgConstr.css({
+					background: 'url(/img/constructor/10l-pro_big.jpg)',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'contain',
+					backgroundPosition: 'top center'
+				});
+				mtextValue.text('Самогонный аппарат Компакт с баком на 14л');
+				hiddenComment.val('Самогонный аппарат Компакт с баком на 14л');
+				$('#litr0').show();
+				$('#litr3').hide();
+				$(litreVl).removeClass('active');
+				$(litreVl[0]).addClass('active');
+				$(arrCompl).removeClass('hide');
+				$.each(arrCompl, function(i, val) {
+					if ( i > 4 && i < 9) {
+						$(val).addClass('hide');
+					};
+				});
+				buyBtn.text('Купить аппарат');
+				modalBtn.text('Купить аппарат');
+			};
+		}
+
+
+		
+	});
+
+})();
+
+// $(function() { // fridayblack
+
+// 	// When the user scrolls the page, execute myFunction
+// 	window.onscroll = function() {myFunction()};
+
+// 	// Get the navbar
+// 	var wehave = document.getElementById("header-text");
+// 	var navbar = document.getElementById("navbar");
+
+// 	// Get the offset position of the navbar
+// 	var showMenu = wehave.offsetTop;
+
+// 	// Add the sticky class to the navbar
+// 	function myFunction() {
+// 		if (window.pageYOffset >= showMenu) {
+// 			navbar.classList.add("showMenu")
+// 		} else {
+// 			navbar.classList.remove("showMenu");
 // 		}
-// 		$('#message').html(messages[i]).fadeIn(500).delay(3000).fadeOut(500, function() {
-// 			nextMsg(i + 1);
-// 		});
-// 	};
-
-// 	var messages = [
-// 	"10л: <span>4 090грн</span>&nbsp;<strong>3 390</strong> грн",
-// 	"20л: <span>4 690грн</span>&nbsp;<strong>4 090</strong> грн",
-// 	"30л: <span>5 190грн</span>&nbsp;<strong>4 690</strong> грн"
-// 	];
-
-// 	$('#message').hide();
-
-// 	nextMsg(0);
+// 	}
 
 // });
-
-$(function() { // fridayblack
-
-	// When the user scrolls the page, execute myFunction
-	window.onscroll = function() {myFunction()};
-
-	// Get the navbar
-	var wehave = document.getElementById("header-text");
-	var navbar = document.getElementById("navbar");
-
-	// Get the offset position of the navbar
-	var showMenu = wehave.offsetTop;
-
-	// Add the sticky class to the navbar
-	function myFunction() {
-		if (window.pageYOffset >= showMenu) {
-			navbar.classList.add("showMenu")
-		} else {
-			navbar.classList.remove("showMenu");
-		}
-	}
-
-});
 
 // Modal Control - Book
 
@@ -140,26 +768,26 @@ $(function() {
 
 // Modal Control - Black friday
 
-$(function() { // fridayblack
+// $(function() { // fridayblack
 
-	var modal = $('#blackfriday-modal.modal-mask');
+// 	var modal = $('#blackfriday-modal.modal-mask');
 
-	$('.bf-text-block .bf-btn').on('click', function(e) {
-		e.preventDefault();
-		modal.removeClass('hide');
-	});
+// 	$('.bf-text-block .bf-btn').on('click', function(e) {
+// 		e.preventDefault();
+// 		modal.removeClass('hide');
+// 	});
 
-	$('.modal-close').on('click', function() {
-		modal.addClass('hide');
-	});
+// 	$('.modal-close').on('click', function() {
+// 		modal.addClass('hide');
+// 	});
 
-	$(document).on('click', function(event) {
-		if ( event.target.id == 'mW3' ) {
-			modal.addClass('hide');
-		}
-	});
+// 	$(document).on('click', function(event) {
+// 		if ( event.target.id == 'mW3' ) {
+// 			modal.addClass('hide');
+// 		}
+// 	});
 
-});
+// });
 
 // Modal Control - About
 
@@ -200,47 +828,47 @@ $(function() {
 		modal.removeClass('hide');
 
 		if ( $(this).attr('id') == 'carga' ) {
-			addPrice.text('1 190₴');
-			addTextm.text('Дополнительная царга с сеткой Панченкова');
-			hiddenComAdd.val('Дополнительная царга с сеткой Панченкова');
+			addPrice.text('600₴');
+			addTextm.text('Отвод под вытяжку');
+			hiddenComAdd.val('Отвод под вытяжку');
 			// console.log('carga');
 		} else if ( $(this).attr('id') == 'dioptr' ) {
-			addPrice.text('1 590₴');
+			addPrice.text('1 900₴');
 			addTextm.text('Инновационный диоптр 4 в 1');
 			hiddenComAdd.val('Инновационный диоптр 4 в 1');
 			// console.log('dioptr');
 		} else if ( $(this).attr('id') == 'popugai' ) {
-			addPrice.text('690₴');
+			addPrice.text('900₴');
 			addTextm.text('Непрерывный контроль крепости (Попугай)');
 			hiddenComAdd.val('Непрерывный контроль крепости (Попугай)');
 			// console.log('popugai');
 		} else if ( $(this).attr('id') == 'rashiga' ) {
-			addPrice.text('710₴');
+			addPrice.text('850₴');
 			addTextm.text('Кольца Рашига 1 кг');
 			hiddenComAdd.val('Кольца Рашига 1 кг');
 			// console.log('rashiga');
 		} else if ( $(this).attr('id') == 'areom' ) {
-			addPrice.text('450₴');
+			addPrice.text('550₴');
 			addTextm.text('Набор профессиональных ареометров и мерная колба');
 			hiddenComAdd.val('Набор профессиональных ареометров и мерная колба');
 			// console.log('areom');
 		} else if ( $(this).attr('id') == 'komplOhl' ) {
 			addPrice.text('750₴');
-			addTextm.text('Комплект охлождения ДеЛюкс');
-			hiddenComAdd.val('Комплект охлождения ДеЛюкс');
+			addTextm.text('Комплект охлождения ДеЛюкс 6 мм');
+			hiddenComAdd.val('Комплект охлождения ДеЛюкс 6 мм');
 			// console.log('drogi');
 		} else if ( $(this).attr('id') == 'ugol' ) {
-			addPrice.text('750₴');
+			addPrice.text('850₴');
 			addTextm.text('Угольная колонна AquaGradus');
 			hiddenComAdd.val('Угольная колонна AquaGradus');
 			// console.log('drogi');
 		} else if ( $(this).attr('id') == 'regMosh' ) {
-			addPrice.text('1 550₴');
+			addPrice.text('1 850₴');
 			addTextm.text('Регулятор мощности нагрева АГ-2');
 			hiddenComAdd.val('Регулятор мощности нагрева АГ-2');
 			// console.log('drogi');
 		} else if ( $(this).attr('id') == 'ten' ) {
-			addPrice.text('250₴');
+			addPrice.text('350₴');
 			addTextm.text('Водяной ТЭН для самогонного аппарат');
 			hiddenComAdd.val('Водяной ТЭН для самогонного аппарат');
 			// console.log('drogi');

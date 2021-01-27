@@ -104,6 +104,20 @@
 							height: rem(40) // xs rem(32)
 						p
 							font-size: 10px // xs 8px
+					.phone-mobile
+						.ct-phone
+							position: relative
+							padding-left: rem(25)
+							&:before
+								content: ""
+				.header-navbar
+					#menu
+						.head-ph
+							.ct-phone
+								position: relative
+								padding-left: rem(35)
+								&:before
+									content: ""								
 		.header-wellcome
 			padding-top: rem(67) // sm rem(67) xs rem(40)
 			.header-bonus
@@ -395,11 +409,11 @@
 
 	/* BlackFriday Banner Start */
 
-	.banner
-		display: block // fridayblack
+	// .banner
+	// 	display: block // fridayblack
 
-	.bannerm
-		display: none // fridayblack
+	// .bannerm
+	// 	display: none // fridayblack
 
 	/* BlackFriday Banner End */
 
@@ -411,7 +425,7 @@
 				flex-direction: row
 				.header-brand
 					width: inherit
-					.phone-mobile, .icon
+					.phone-mobile, .icon, .local-mob
 						display: none
 				.header-navbar
 					z-index: 100
@@ -434,7 +448,7 @@
 				.time-wrap
 					flex-direction: column
 					align-items: flex-start
-					width: 90%
+					width: 60%
 					height: 100%
 					p
 						margin-bottom: rem(-10)
@@ -443,6 +457,8 @@
 						font-size: 24px
 						#days1, #hours1, #minutes1, #seconds1
 							min-width: rem(36)
+				.local-desc
+					display: block
 		.header-wellcome
 			.container-fluid
 				.row
@@ -523,25 +539,25 @@
 
 	/* Blackfriday Start */
 
-	.blackfriday
-		padding: rem(30) 0
-		.container
-			.bf-row
-				flex-direction: row
-				.bf-img-block
-					width: 55%
-				.bf-text-block
-					width: 45%
-					.aqua, .small-h
-						font-size: 44px
-						line-height: 44px
-					.aqua
-						.logo-font
-							font-size: 48px
-					.img-responsive
-					.small-h
-					.bf-adds
-					.bf-btn
+	// .blackfriday
+	// 	padding: rem(30) 0
+	// 	.container
+	// 		.bf-row
+	// 			flex-direction: row
+	// 			.bf-img-block
+	// 				width: 55%
+	// 			.bf-text-block
+	// 				width: 45%
+	// 				.aqua, .small-h
+	// 					font-size: 44px
+	// 					line-height: 44px
+	// 				.aqua
+	// 					.logo-font
+	// 						font-size: 48px
+	// 				.img-responsive
+	// 				.small-h
+	// 				.bf-adds
+	// 				.bf-btn
 
 	/* Blackfriday End */	
 	

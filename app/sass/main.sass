@@ -167,33 +167,33 @@ textarea
 		cursor: default!important
 		box-shadow: none!important
 
-.showMenu
-	top: 0!important // fridayblack
+// .showMenu
+// 	top: 0!important // fridayblack
 
 /* BlackFriday Banner Start */
 
-.banner
-	display: none
+// .banner
+// 	display: none
 
-.banner, .bannerm
-	margin: 0px
-	padding: 0px
-	text-align: center
-	a
-		text-decoration: none
-		display: block
-		background: #d9172f
-		height: 60px
-		width: 100%
-		.h-img
-			display: block
-			max-width: 1316px
-			margin: 0 auto
-			width: 100%
+// .banner, .bannerm
+// 	margin: 0px
+// 	padding: 0px
+// 	text-align: center
+// 	a
+// 		text-decoration: none
+// 		display: block
+// 		background: #d9172f
+// 		height: 60px
+// 		width: 100%
+// 		.h-img
+// 			display: block
+// 			max-width: 1316px
+// 			margin: 0 auto
+// 			width: 100%
 
-.bannerm
-	a
-		height: auto
+// .bannerm
+// 	a
+// 		height: auto
 
 /* BlackFriday Banner End */
 
@@ -202,11 +202,10 @@ textarea
 .header
 	position: relative
 	width: 100%
-	// background: #fff url(/img/bg-1.png) no-repeat 100% 0
 	background-size: 50%
 	.header-nav
 		position: fixed
-		top: -100px // fridayblack
+		top: 0 // fridayblack
 		transition: .4s // fridayblack
 		width: 100%
 		z-index: 500
@@ -228,7 +227,6 @@ textarea
 				justify-content: space-between
 				align-items: center
 				width: 100%
-				// z-index: 100
 				.header-logo
 					img
 						height: rem(30) // sm rem(40) 
@@ -245,10 +243,10 @@ textarea
 					flex: 1 1 auto
 					align-items: flex-end
 					.ct-phone
-						position: relative
-						padding-left: rem(25)
+						// position: relative
+						// padding-left: rem(25)
 						&:before
-							content: ""
+							// content: ""
 							width: rem(20)
 							height: rem(20)
 							top: 50%
@@ -301,8 +299,10 @@ textarea
 							top: 0
 							transform: rotate(135deg)
 			.header-navbar
+				display: flex
+				flex: 1 0 auto
+				justify-content: flex-end
 				#menu
-					// display: flex
 					display: none
 					flex-direction: column
 					align-items: center
@@ -321,10 +321,10 @@ textarea
 						display: none
 						z-index: 100
 						.ct-phone
-							position: relative
-							padding-left: rem(35)
+							// position: relative
+							// padding-left: rem(35)
 							&:before
-								content: ""
+								// content: ""
 								width: rem(30)
 								height: rem(30)
 								top: 50%
@@ -378,6 +378,28 @@ textarea
 						min-width: rem(32)
 						.delimiter
 							width: rem(15)
+		.local
+			height: 100%
+			flex: 0 1 auto
+			margin-left: 10px
+			.lang__control
+				display: flex
+				flex-direction: column
+				height: 100%
+				li
+					a
+						display: block
+						font-size: rem(14)
+						padding: rem(3) rem(6)
+						background-color: #ccc
+						color: #fff
+						transition: .4s
+						&:hover
+							background-color: $accent
+					.lang-active
+						background-color: $accent
+		.local-desc
+			display: none
 	.header-wellcome
 		padding-top: rem(40) // sm rem(67) xs rem(40)
 		.container-fluid
@@ -430,16 +452,24 @@ textarea
 							width: 100%
 							vertical-align: middle
 							padding: rem(6) 0
-							// padding: 6px 0
-							.fa
-								font-size: 27px
-								color: $accent
-								margin-right: rem(15)
-								// margin-right: 15px
 							span
 								margin-top: auto
 								margin-bottom: auto
-								font-size: 14px // sm 16px
+								font-size: rem(16)
+								line-height: rem(26)
+								vertical-align: middle
+								&:before
+									display: inline-block
+									width: rem(26)
+									height: rem(26)
+									text-align: center
+									font-weight: bold
+									color: #fff
+									margin-right: rem(15)
+									background-color: $accent
+									border: 1px solid #fff
+									border-radius: 100%
+									content: "+"
 					.formAction
 						strong
 							font-size: 14px // sm 16px
@@ -820,45 +850,45 @@ textarea
 
 /* Blackfriday Start */
 
-.blackfriday
-	padding: rem(30) rem(30)
-	// background: url(../img/right.jpg) center left no-repeat, url(../img/left.jpg) center right no-repeat, #000000
-	// background-size: contain
-	background-color: #e80013
-	.container
-		.bf-row
-			flex-direction: column
-			.bf-img-block
-				// width: 50%
-			.bf-text-block
-				// width: 50%
-				color: #fff
-				text-align: center
-				display: flex
-				flex-direction: column
-				justify-content: center
-				align-items: center
-				.aqua, .small-h
-					color: #fff
-					font-size: 38px
-					line-height: 38px
-					font-weight: bold
-				.aqua
-					color: #b1c5d2
-					margin-bottom: rem(20)
-					.logo-font
-						font-size: 42px
-				.img-responsive
-					margin: 0 auto
-				.small-h
-				.bf-adds
-					color: #fff
-					margin-bottom: rem(30)
-				.bf-btn
-					background-color: #b1c5d2
-					color: #000
-					// max-width: rem(200)
-					padding: rem(15) rem(30)
+// .blackfriday
+// 	padding: rem(30) rem(30)
+// 	// background: url(../img/right.jpg) center left no-repeat, url(../img/left.jpg) center right no-repeat, #000000
+// 	// background-size: contain
+// 	background-color: #e80013
+// 	.container
+// 		.bf-row
+// 			flex-direction: column
+// 			.bf-img-block
+// 				// width: 50%
+// 			.bf-text-block
+// 				// width: 50%
+// 				color: #fff
+// 				text-align: center
+// 				display: flex
+// 				flex-direction: column
+// 				justify-content: center
+// 				align-items: center
+// 				.aqua, .small-h
+// 					color: #fff
+// 					font-size: 38px
+// 					line-height: 38px
+// 					font-weight: bold
+// 				.aqua
+// 					color: #b1c5d2
+// 					margin-bottom: rem(20)
+// 					.logo-font
+// 						font-size: 42px
+// 				.img-responsive
+// 					margin: 0 auto
+// 				.small-h
+// 				.bf-adds
+// 					color: #fff
+// 					margin-bottom: rem(30)
+// 				.bf-btn
+// 					background-color: #b1c5d2
+// 					color: #000
+// 					// max-width: rem(200)
+// 					padding: rem(15) rem(30)
 
 /* Blackfriday End */
 
